@@ -1,15 +1,28 @@
 (function(){
-// function SearchUser(username){
 	var request = new XMLHttpRequest();
 	request.onload = function() {
-		// console.log(this.responseText);
-		var jsonData = JSON.parse(request.responseText);
-		console.log(jsonData);
+    // console.log(this.responseText);
+    	var userInfo = JSON.parse(request.responseText);
+    	// console.log(userInfo);
+    	document.write(userInfo.name + " has completed " + userInfo.badges.length + " badges on Treehouse. They are: <br /> <br />");
+  //   	console.log(userInfo.badges.length);
+    	for(var i = 0; i<userInfo.badges.length; i++){
+			document.write(userInfo.badges[i].name + "<br />");
+		}
+
 	};
+request.open("get", "http://teamtreehouse.com/nathanbrenner.json");
+request.send();
 
-
-	request.open("get", "http://teamtreehouse.com/nathanbrenner.json");
-	request.send();
+	// var request = new XMLHttpRequest();
+	// request.onload = function() {
+	// 	if(request.readyState === 4){
+	// 		var jsonData = JSON.parse(request.responseText);
+	// 		console.log(jsonData);
+	// 	}
+	// };
+	// request.open("get", "http://teamtreehouse.com/nathanbrenner.json");
+	// request.send();
 // }
 	// var div = document.createElement('div');
 	// document.body.appendChild(div);
