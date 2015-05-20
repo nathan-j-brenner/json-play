@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome to #{title}
+	form(action="/" method="POST")
+		input(type="text" placeholder="Enter a Treehouse username" id="username" name="username")
+		input(type="submit" value="search" class="button")
